@@ -1,0 +1,438 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "API of the Ensure Activity Site Suitable License",
+    "version": "1.0.0",
+    "title": "EASSL Ensure Activity Site Suitable License",
+    "contact": {
+      "email": "a.mamdouh.c@rcu.gov.sa"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "tags": [
+    {
+      "name": "admins",
+      "description": "Secured Admin-only calls"
+    },
+    {
+      "name": "developers",
+      "description": "Operations available to regular developers"
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/eassllicenserequest": {
+      "post": {
+        "tags": [
+          "admins"
+        ],
+        "summary": "create/update EASSL request",
+        "description": "Create or Update Ensure Activity Site Suitable License",
+        "operationId": "eassllicenserequest",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Appian-API-Key",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Ensure Activity Site Suitable License",
+            "description": "Ensure Activity Site Suitable License",
+            "required": false,
+            "schema": {
+               "type": "object",
+                "properties": {
+                    "RequestId": {
+                    "type": "integer",
+                    "minimum": 1
+                    },
+                    "IDOrResidenceNumber": {
+                    "type": "string"
+                    },
+                    "Name": {
+                    "type": "string"
+                    },
+                    "DateOfBirth": {
+                    "type": "string",
+                    "example": "dd-MM-yyyy"
+                    },
+                    "MobileNumber": {
+                    "type": "string"
+                    },
+                    "Gender": {
+                    "type": "string",
+                    "enum": [
+                        "Male",
+                        "Female"
+                    ]
+                    },
+                    "Email": {
+                    "type": "string"
+                    },
+                    "CommercialRegisterNumber": {
+                    "type": "string"
+                    },
+                    "DetailedLocationRelatedData": {
+                    "type": "string"
+                    },
+                    "ActivityDescription": {
+                    "type": "string"
+                    },
+                    "LocationLatitude": {
+                    "type": "number"
+                    },
+                    "LocationLongitude": {
+                    "type": "number"
+                    }
+                }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "EASSL Request added/updated",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "RequestId": {
+                    "type": "integer",
+                    "example": 1,
+                    "minimum": 1
+                    }
+                }
+            }
+          },
+          "500": {
+            "description": "internal error in Appian System",
+            "schema": {
+              "type": "object",
+              "properties": {
+                    "Response": {
+                    "type": "string"
+                    }
+                }
+            }
+          }
+        }
+      }
+    },
+    "/eassluplaoddocuments": {
+      "post": {
+        "tags": [
+          "admins"
+        ],
+        "summary": "uplaod 2 documents related to the request submission or update(Commercial Register, Interface Image)",
+        "description": "plaod 2 documents related to the request submission or update(Commercial Register, Interface Image)",
+        "operationId": "eassluplaoddocuments",
+        "consumes": [
+          "based on uploaded file type (application/pdf, image/png ....)"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Appian-Document-Name",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "RequestId",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "minimum": 1
+          },
+          {
+            "name": "DocumentType",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "CommercialRegister",
+              "InterfaceImage"
+            ]
+          },
+          {
+            "name": "Appian-API-Key",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "document",
+            "description": "document to be uploaded in binary representation",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "binary",
+              "example": "document"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "document uploaded to Appian Successfully",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "DocumentId": {
+                    "type": "integer",
+                    "example": 1923
+                    }
+                }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "schema": {
+              "type": "object",
+              "properties": {
+                    "Response": {
+                    "type": "string"
+                    }
+                }
+            }
+          },
+          "500": {
+            "description": "internal error in Appian System",
+            "schema": {
+              "type": "object",
+              "properties": {
+                    "Response": {
+                    "type": "string"
+                    }
+                }
+            }
+          }
+        }
+      }
+    },
+    "/easslgetrequestbyid": {
+      "get": {
+        "tags": [
+          "admins"
+        ],
+        "summary": "get all EASSL request details by id(including license id if uplaoded & request status)",
+        "description": "get all EASSL request details by id(including license id if uplaoded & request status)",
+        "operationId": "easslgetrequestbyid",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Appian-API-Key",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "RequestId",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "minimum": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "request details returned successfully",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "RequestId": {
+                    "type": "integer",
+                    "minimum": 1
+                    },
+                    "IDOrResidenceNumber": {
+                    "type": "string"
+                    },
+                    "Name": {
+                    "type": "string"
+                    },
+                    "DateOfBirth": {
+                    "type": "string",
+                    "example": "dd-MM-yyyy"
+                    },
+                    "MobileNumber": {
+                    "type": "string"
+                    },
+                    "Gender": {
+                    "type": "string",
+                    "enum": [
+                        "Male",
+                        "Female"
+                    ]
+                    },
+                    "Email": {
+                    "type": "string"
+                    },
+                    "CommercialRegisterNumber": {
+                    "type": "string"
+                    },
+                    "DetailedLocationRelatedData": {
+                    "type": "string"
+                    },
+                    "ActivityDescription": {
+                    "type": "string"
+                    },
+                    "LocationLatitude": {
+                    "type": "string"
+                    },
+                    "LocationLongitude": {
+                    "type": "string"
+                    },
+                    "RequestStatus": {
+                    "type": "string",
+                    "enum": [
+                        "Pending With Operation Team",
+                        "Under Assigned Group Review",
+                        "Under Operation Team Review",
+                        "Under Operations Head Review",
+                        "Complete - Approved",
+                        "Complete - Rejected"
+                    ]
+                    }
+                }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "schema": {
+              "type": "object",
+              "properties": {
+                    "Response": {
+                    "type": "string"
+                    }
+                }
+            }
+          },
+          "404": {
+            "description": "404 Not Found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                    "Response": {
+                    "type": "string"
+                    }
+                }
+            }
+          },
+          "500": {
+            "description": "internal error in Appian System",
+            "schema": {
+              "type": "object",
+              "properties": {
+                    "Response": {
+                    "type": "string"
+                    }
+                }
+            }
+          }
+        }
+      }
+    },
+    "/eassldownloaddocumentbyrequestid": {
+      "get": {
+        "tags": [
+          "admins"
+        ],
+        "summary": "get any uploaded document by it's Appian doc id",
+        "description": "get any uploaded document by it's Appian doc id",
+        "operationId": "eassldownloaddocumentbyrequestid",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "RequestId",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "minimum": 1
+          },
+          {
+            "name": "DocumentType",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "CommercialRegister",
+              "InterfaceImage",
+              "License"
+            ]
+          },
+          {
+            "name": "Appian-API-Key",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "return the document",
+            "headers": {
+              "File-Name": {
+                "type": "string",
+                "description": "name.extension"
+              }
+            },
+            "schema": {
+              "type": "string",
+              "format": "binary"
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "schema": {
+              "type": "object",
+              "properties": {
+                    "Response": {
+                    "type": "string"
+                    }
+                }
+            }
+          },
+          "404": {
+            "description": "404 Not Found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                    "Response": {
+                    "type": "string"
+                    }
+                }
+            }
+          },
+          "500": {
+            "description": "internal error in Appian System",
+            "schema": {
+              "type": "object",
+              "properties": {
+                    "Response": {
+                    "type": "string"
+                    }
+                }
+            }
+          }
+        }
+      }
+    }
+  }
+}

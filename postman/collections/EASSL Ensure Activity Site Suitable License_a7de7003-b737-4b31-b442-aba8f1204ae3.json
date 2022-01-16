@@ -1,0 +1,803 @@
+{
+    "info": {
+        "_postman_id": "e3467e6b-c7a0-4aae-a88b-c080bb140dbf",
+        "name": "EASSL Ensure Activity Site Suitable License",
+        "description": "API of the Ensure Activity Site Suitable License\n\nContact Support:\n Email: a.mamdouh.c@rcu.gov.sa",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "create/update EASSL request",
+            "id": "5438f590-964f-42c3-a210-7bcbee5f3497",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "description": "(Required) ",
+                        "key": "Appian-API-Key",
+                        "value": "<string>"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"RequestId\": \"<integer>\",\n    \"IDOrResidenceNumber\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"DateOfBirth\": \"<string>\",\n    \"MobileNumber\": \"<string>\",\n    \"Gender\": \"<string>\",\n    \"Email\": \"<string>\",\n    \"CommercialRegisterNumber\": \"<string>\",\n    \"DetailedLocationRelatedData\": \"<string>\",\n    \"ActivityDescription\": \"<string>\",\n    \"LocationLatitude\": \"<number>\",\n    \"LocationLongitude\": \"<number>\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/eassllicenserequest",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "eassllicenserequest"
+                    ]
+                },
+                "description": "Create or Update Ensure Activity Site Suitable License"
+            },
+            "response": [
+                {
+                    "id": "3077858d-9f33-47d5-b077-98615c9e3a10",
+                    "name": "EASSL Request added/updated",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "description": "(Required) ",
+                                "key": "Appian-API-Key",
+                                "value": "<string>"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"RequestId\": \"<integer>\",\n    \"IDOrResidenceNumber\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"DateOfBirth\": \"<string>\",\n    \"MobileNumber\": \"<string>\",\n    \"Gender\": \"<string>\",\n    \"Email\": \"<string>\",\n    \"CommercialRegisterNumber\": \"<string>\",\n    \"DetailedLocationRelatedData\": \"<string>\",\n    \"ActivityDescription\": \"<string>\",\n    \"LocationLatitude\": \"<number>\",\n    \"LocationLongitude\": \"<number>\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/eassllicenserequest",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "eassllicenserequest"
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"RequestId\": \"<integer>\"\n}"
+                },
+                {
+                    "id": "43e76cbb-e51b-4fc7-a260-5a4ac2f15492",
+                    "name": "internal error in Appian System",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "description": "(Required) ",
+                                "key": "Appian-API-Key",
+                                "value": "<string>"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"RequestId\": \"<integer>\",\n    \"IDOrResidenceNumber\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"DateOfBirth\": \"<string>\",\n    \"MobileNumber\": \"<string>\",\n    \"Gender\": \"<string>\",\n    \"Email\": \"<string>\",\n    \"CommercialRegisterNumber\": \"<string>\",\n    \"DetailedLocationRelatedData\": \"<string>\",\n    \"ActivityDescription\": \"<string>\",\n    \"LocationLatitude\": \"<number>\",\n    \"LocationLongitude\": \"<number>\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/eassllicenserequest",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "eassllicenserequest"
+                            ]
+                        }
+                    },
+                    "status": "Internal Server Error",
+                    "code": 500,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"Response\": \"<string>\"\n}"
+                }
+            ]
+        },
+        {
+            "name": "uplaod 2 documents related to the request submission or update(Commercial Register, Interface Image)",
+            "id": "a144e8be-a236-4092-86c6-f94d522b495e",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "description": "(Required) ",
+                        "key": "Appian-Document-Name",
+                        "value": "<string>"
+                    },
+                    {
+                        "description": "(Required) ",
+                        "key": "Appian-API-Key",
+                        "value": "<string>"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "based on uploaded file type (application/pdf, image/png ....)"
+                    }
+                ],
+                "body": {
+                    "mode": "file",
+                    "file": {}
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/eassluplaoddocuments?RequestId=<integer>&DocumentType=<string>",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "eassluplaoddocuments"
+                    ],
+                    "query": [
+                        {
+                            "key": "RequestId",
+                            "value": "<integer>",
+                            "description": "(Required) "
+                        },
+                        {
+                            "key": "DocumentType",
+                            "value": "<string>",
+                            "description": "(Required) "
+                        }
+                    ]
+                },
+                "description": "plaod 2 documents related to the request submission or update(Commercial Register, Interface Image)"
+            },
+            "response": [
+                {
+                    "id": "674dc6ad-cd61-4fa0-9f11-39adca096711",
+                    "name": "document uploaded to Appian Successfully",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "description": "(Required) ",
+                                "key": "Appian-Document-Name",
+                                "value": "<string>"
+                            },
+                            {
+                                "description": "(Required) ",
+                                "key": "Appian-API-Key",
+                                "value": "<string>"
+                            }
+                        ],
+                        "body": {
+                            "mode": "file",
+                            "file": {}
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/eassluplaoddocuments?RequestId=<integer>&DocumentType=<string>",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "eassluplaoddocuments"
+                            ],
+                            "query": [
+                                {
+                                    "key": "RequestId",
+                                    "value": "<integer>"
+                                },
+                                {
+                                    "key": "DocumentType",
+                                    "value": "<string>"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"DocumentId\": \"<integer>\"\n}"
+                },
+                {
+                    "id": "12a0d45e-388b-4bbf-bbb2-515e07a57bb0",
+                    "name": "400 Bad Request",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "description": "(Required) ",
+                                "key": "Appian-Document-Name",
+                                "value": "<string>"
+                            },
+                            {
+                                "description": "(Required) ",
+                                "key": "Appian-API-Key",
+                                "value": "<string>"
+                            }
+                        ],
+                        "body": {
+                            "mode": "file",
+                            "file": {}
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/eassluplaoddocuments?RequestId=<integer>&DocumentType=<string>",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "eassluplaoddocuments"
+                            ],
+                            "query": [
+                                {
+                                    "key": "RequestId",
+                                    "value": "<integer>"
+                                },
+                                {
+                                    "key": "DocumentType",
+                                    "value": "<string>"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Bad Request",
+                    "code": 400,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"Response\": \"<string>\"\n}"
+                },
+                {
+                    "id": "8567f0dd-c457-4021-a6d0-4be464994331",
+                    "name": "internal error in Appian System",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "description": "(Required) ",
+                                "key": "Appian-Document-Name",
+                                "value": "<string>"
+                            },
+                            {
+                                "description": "(Required) ",
+                                "key": "Appian-API-Key",
+                                "value": "<string>"
+                            }
+                        ],
+                        "body": {
+                            "mode": "file",
+                            "file": {}
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/eassluplaoddocuments?RequestId=<integer>&DocumentType=<string>",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "eassluplaoddocuments"
+                            ],
+                            "query": [
+                                {
+                                    "key": "RequestId",
+                                    "value": "<integer>"
+                                },
+                                {
+                                    "key": "DocumentType",
+                                    "value": "<string>"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Internal Server Error",
+                    "code": 500,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"Response\": \"<string>\"\n}"
+                }
+            ]
+        },
+        {
+            "name": "get all EASSL request details by id(including license id if uplaoded & request status)",
+            "id": "9b86da35-875e-452e-9f42-57b1e46c8f7c",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "description": "(Required) ",
+                        "key": "Appian-API-Key",
+                        "value": ""
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/easslgetrequestbyid?RequestId=1",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "easslgetrequestbyid"
+                    ],
+                    "query": [
+                        {
+                            "key": "RequestId",
+                            "value": "1",
+                            "description": "(Required) "
+                        }
+                    ]
+                },
+                "description": "get all EASSL request details by id(including license id if uplaoded & request status)"
+            },
+            "response": [
+                {
+                    "id": "b1156638-d581-4b2a-93d2-17b1f37951ae",
+                    "name": "request details returned successfully",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "description": "(Required) ",
+                                "key": "Appian-API-Key",
+                                "value": "<string>"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/easslgetrequestbyid?RequestId=<integer>",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "easslgetrequestbyid"
+                            ],
+                            "query": [
+                                {
+                                    "key": "RequestId",
+                                    "value": "<integer>"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"RequestId\": \"<integer>\",\n \"IDOrResidenceNumber\": \"<string>\",\n \"Name\": \"<string>\",\n \"DateOfBirth\": \"<string>\",\n \"MobileNumber\": \"<string>\",\n \"Gender\": \"<string>\",\n \"Email\": \"<string>\",\n \"CommercialRegisterNumber\": \"<string>\",\n \"DetailedLocationRelatedData\": \"<string>\",\n \"ActivityDescription\": \"<string>\",\n \"LocationLatitude\": \"<string>\",\n \"LocationLongitude\": \"<string>\",\n \"RequestStatus\": \"<string>\"\n}"
+                },
+                {
+                    "id": "ba523dc2-b46b-4d46-8a15-80d7ae435758",
+                    "name": "400 Bad Request",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "description": "(Required) ",
+                                "key": "Appian-API-Key",
+                                "value": "<string>"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/easslgetrequestbyid?RequestId=<integer>",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "easslgetrequestbyid"
+                            ],
+                            "query": [
+                                {
+                                    "key": "RequestId",
+                                    "value": "<integer>"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Bad Request",
+                    "code": 400,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"Response\": \"<string>\"\n}"
+                },
+                {
+                    "id": "3d6d0d2f-26ba-432e-be29-ee26f9248816",
+                    "name": "404 Not Found",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "description": "(Required) ",
+                                "key": "Appian-API-Key",
+                                "value": "<string>"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/easslgetrequestbyid?RequestId=<integer>",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "easslgetrequestbyid"
+                            ],
+                            "query": [
+                                {
+                                    "key": "RequestId",
+                                    "value": "<integer>"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Not Found",
+                    "code": 404,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"Response\": \"<string>\"\n}"
+                },
+                {
+                    "id": "60c4f95c-c801-4921-bd12-2674e56c8e9f",
+                    "name": "internal error in Appian System",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "description": "(Required) ",
+                                "key": "Appian-API-Key",
+                                "value": "<string>"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/easslgetrequestbyid?RequestId=<integer>",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "easslgetrequestbyid"
+                            ],
+                            "query": [
+                                {
+                                    "key": "RequestId",
+                                    "value": "<integer>"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Internal Server Error",
+                    "code": 500,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"Response\": \"<string>\"\n}"
+                }
+            ]
+        },
+        {
+            "name": "get any uploaded document by it's Appian doc id",
+            "id": "2ad57413-a649-407a-b288-f098fc705786",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "description": "(Required) ",
+                        "key": "Appian-API-Key",
+                        "value": "<string>"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/eassldownloaddocumentbyrequestid?RequestId=<integer>&DocumentType=<string>",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "eassldownloaddocumentbyrequestid"
+                    ],
+                    "query": [
+                        {
+                            "key": "RequestId",
+                            "value": "<integer>",
+                            "description": "(Required) "
+                        },
+                        {
+                            "key": "DocumentType",
+                            "value": "<string>",
+                            "description": "(Required) "
+                        }
+                    ]
+                },
+                "description": "get any uploaded document by it's Appian doc id"
+            },
+            "response": [
+                {
+                    "id": "2a5dd75c-66f4-4973-b872-fb2304fa4602",
+                    "name": "return the document",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "description": "(Required) ",
+                                "key": "Appian-API-Key",
+                                "value": "<string>"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/eassldownloaddocumentbyrequestid?RequestId=<integer>&DocumentType=<string>",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "eassldownloaddocumentbyrequestid"
+                            ],
+                            "query": [
+                                {
+                                    "key": "RequestId",
+                                    "value": "<integer>"
+                                },
+                                {
+                                    "key": "DocumentType",
+                                    "value": "<string>"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "disabled": false,
+                            "description": "name.extension",
+                            "key": "File-Name",
+                            "value": "<string>"
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "\"<binary>\""
+                },
+                {
+                    "id": "4d0a78af-44ea-4023-b34e-1ad20d13b09d",
+                    "name": "400 Bad Request",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "description": "(Required) ",
+                                "key": "Appian-API-Key",
+                                "value": "<string>"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/eassldownloaddocumentbyrequestid?RequestId=<integer>&DocumentType=<string>",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "eassldownloaddocumentbyrequestid"
+                            ],
+                            "query": [
+                                {
+                                    "key": "RequestId",
+                                    "value": "<integer>"
+                                },
+                                {
+                                    "key": "DocumentType",
+                                    "value": "<string>"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Bad Request",
+                    "code": 400,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"Response\": \"<string>\"\n}"
+                },
+                {
+                    "id": "cf7e9e88-efa5-4a1f-93a9-0a798afb9f1c",
+                    "name": "404 Not Found",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "description": "(Required) ",
+                                "key": "Appian-API-Key",
+                                "value": "<string>"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/eassldownloaddocumentbyrequestid?RequestId=<integer>&DocumentType=<string>",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "eassldownloaddocumentbyrequestid"
+                            ],
+                            "query": [
+                                {
+                                    "key": "RequestId",
+                                    "value": "<integer>"
+                                },
+                                {
+                                    "key": "DocumentType",
+                                    "value": "<string>"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Not Found",
+                    "code": 404,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"Response\": \"<string>\"\n}"
+                },
+                {
+                    "id": "c871a2d3-c3a5-4358-a5b2-f7e68066ad1b",
+                    "name": "internal error in Appian System",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "description": "(Required) ",
+                                "key": "Appian-API-Key",
+                                "value": "<string>"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/eassldownloaddocumentbyrequestid?RequestId=<integer>&DocumentType=<string>",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "eassldownloaddocumentbyrequestid"
+                            ],
+                            "query": [
+                                {
+                                    "key": "RequestId",
+                                    "value": "<integer>"
+                                },
+                                {
+                                    "key": "DocumentType",
+                                    "value": "<string>"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Internal Server Error",
+                    "code": 500,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"Response\": \"<string>\"\n}"
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "id": "570a286c-d662-4815-9b15-c2a8efb19005",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "id": "a778bf2e-5278-4c77-88dc-1f2c00bd3d72",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "id": "5ab8d62e-1e5b-4081-b0c8-a7949d6e7f94",
+            "value": "",
+            "type": "string"
+        }
+    ]
+}
